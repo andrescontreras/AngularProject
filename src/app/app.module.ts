@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HistorialComprasComponent } from './components/historial-compras/historial-compras.component';
 import { DetalleProdComponent } from './components/detalle-prod/detalle-prod.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { DetalleProdComponent } from './components/detalle-prod/detalle-prod.com
     NewClienteComponent,
     FooterComponent,
     HistorialComprasComponent,
-    DetalleProdComponent
+    DetalleProdComponent,
+   
   ],
   imports: [
     BrowserModule
