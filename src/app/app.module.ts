@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { NavBogComponent } from './components/nav-bog/nav-bog.component';
 import { NavCajComponent } from './components/nav-caj/nav-caj.component';
 import { NewProductoComponent } from './components/new-producto/new-producto.component';
 import { NewCompraComponent } from './components/new-compra/new-compra.component';
@@ -14,6 +13,10 @@ import { NewClienteComponent } from './components/new-cliente/new-cliente.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { HistorialComprasComponent } from './components/historial-compras/historial-compras.component';
 import { DetalleProdComponent } from './components/detalle-prod/detalle-prod.component';
+import { PrincipalBodComponent } from './components/principal-bod/principal-bod.component';
+import { PrincipalCajComponent } from './components/principal-caj/principal-caj.component';
+import { NavBodComponent } from './components/nav-bod/nav-bod.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -21,7 +24,6 @@ import { DetalleProdComponent } from './components/detalle-prod/detalle-prod.com
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    NavBogComponent,
     NavCajComponent,
     NewProductoComponent,
     NewCompraComponent,
@@ -31,10 +33,14 @@ import { DetalleProdComponent } from './components/detalle-prod/detalle-prod.com
     FooterComponent,
     HistorialComprasComponent,
     DetalleProdComponent,
+    PrincipalBodComponent,
+    PrincipalCajComponent,
+    NavBodComponent,
    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
