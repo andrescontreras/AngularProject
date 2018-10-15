@@ -14,13 +14,13 @@ import { InventarioComponent } from './components/inventario/inventario.componen
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent},
-  { path: 'bodegero', component: PrincipalBodComponent,
+  { path: 'bodeguero', component: PrincipalBodComponent,
     children:[
       { path: 'newProduct', component: NewProductoComponent },
       { path: 'inventario', component: InventarioComponent},
 
       { path: '', component: NewProductoComponent, pathMatch: 'full' },
-      { path: '**', redirectTo: '/bodegero', pathMatch: 'full' }
+      { path: '**', redirectTo: '/bodeguero', pathMatch: 'full' }
     ]
   },
   { path: 'cajero', component: PrincipalCajComponent,
