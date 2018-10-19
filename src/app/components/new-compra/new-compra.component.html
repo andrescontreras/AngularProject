@@ -1,3 +1,68 @@
 <p>
   new-compra works!
 </p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-lg-7 borde">
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+          <h3>Productos</h3>
+        </form>
+      </nav>
+      <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Producto</th>
+            <th scope="col">precio</th>
+            <th scope="col">cantidad</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of contactos; let i = index">
+            <th scope="row">{{i}}</th>
+            <td>{{item.sector}}</td>
+            <td>{{item.empresa}}</td>
+            <td>{{item.cargo}}</td>
+            <td><a routerLink="/principal/buscar" ><button class="btn btn-outline-info btn-sm" >Detalle</button></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="col borde">
+      <h3>Nuevo item</h3>
+      
+      <form class="form-inline">
+        
+        <label class="sr-only" for="inlineFormInputGroupUsername2">ID</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">ID</div>
+          </div>
+          <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="ID">
+        </div>
+
+        <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Nombre</div>
+          </div>
+          <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+        </div>
+      
+        <div class="form-check mb-2 mr-sm-2">
+          <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+          <label class="form-check-label" for="inlineFormCheck">
+            Remember me
+          </label>
+        </div>
+      
+        <button type="submit" class="btn btn-info mb-2">Agregar</button>
+      </form>
+    
+    </div>
+  </div>
+</div>
