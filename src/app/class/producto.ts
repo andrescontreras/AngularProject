@@ -4,9 +4,10 @@ export class Producto {
     codigoSKU: number;
     nombre: string;
     precio: number;
-    undMed: number;
+    undMed: string;
+    total: number;
 
-    constructor (id: number, cantidad: number, codigoSKU: number, nombre: string, precio:number, undMed: number)
+    constructor (id: number, cantidad: number, codigoSKU: number, nombre: string, precio:number, undMed: string)
     {
         this.id = id;
         this.cantidad = cantidad;
@@ -14,5 +15,6 @@ export class Producto {
         this.nombre =  nombre;
         this.precio =  precio;
         this.undMed =  undMed;
+        this.total = cantidad * precio;
     }
 }
