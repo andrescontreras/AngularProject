@@ -11,6 +11,10 @@ export class NewCompraComponent implements OnInit {
 
   compra: Compra;
   productos: Producto[];
+
+  success = false;
+  danger = false;
+  msg = 'usuario creado';
   constructor() {
     this.productos = [];
    }
@@ -41,6 +45,18 @@ export class NewCompraComponent implements OnInit {
     else{
       this.productos.splice(i,1);
     }
+  }
+
+
+  // parte usuario
+  buscarUser(){
+    this.success = !this.success;
+    this.danger = !this.success; 
+  }
+
+  crearUser(){
+    this.danger = !this.danger;
+    this.success = !this.danger;
   }
 
 }
