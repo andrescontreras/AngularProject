@@ -1,3 +1,4 @@
+import { DetalleProdComponent } from './components/detalle-prod/detalle-prod.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -15,16 +16,17 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent},
   { path: 'bodeguero', component: PrincipalBodComponent,
-    children:[
+    children: [
       { path: 'newProduct', component: NewProductoComponent },
       { path: 'inventario', component: InventarioComponent},
+      { path: 'detalleProd/:id', component: DetalleProdComponent },
 
       { path: '', component: NewProductoComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '/bodeguero', pathMatch: 'full' }
     ]
   },
   { path: 'cajero', component: PrincipalCajComponent,
-    children:[
+    children: [
     { path: 'compra', component: NewCompraComponent},
     { path: 'historial', component: HistorialComprasComponent},
     { path: 'consular-prod', component: ConsultarProdComponent},

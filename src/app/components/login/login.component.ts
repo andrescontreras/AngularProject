@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   user = '';
   password = '';
-  result: any ; 
+  result: any ;
   message: any;
   constructor(private route: ActivatedRoute,
     private router: Router) { }
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   gotoHeroes(n) {
     console.log("ROUTER");
     this.router.navigate(['/cajero']);
-    if(n == 1)
+    if(n === 1)
     {
       this.router.navigate(['/cajero']);
     }
@@ -32,6 +32,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  
+
 }
 

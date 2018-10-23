@@ -7,7 +7,8 @@ export class Producto {
     undMed: string;
     total: number;
 
-    constructor (id: number, cantidad: number, codigoSKU: number, nombre: string, precio:number, undMed: string)
+    constructor (id: number, cantidad: number, codigoSKU: number, nombre: string, precio: number, undMed: string)
+    // tslint:disable-next-line:one-line
     {
         this.id = id;
         this.cantidad = cantidad;

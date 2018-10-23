@@ -1,33 +1,39 @@
 <p>
   inventario works!
+
 </p>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+
+      <div class="text-center borde">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio Und</th>
+              <th scope="col">Precio total</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of prueba; let i = index" [routerLink]="['/bodeguero/detalleProd',i]">
+              <th scope="row">{{i}}</th>
+              <td>Mark11111111111111111111111111</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>@mdo</td>
+              <td class="">
+                <i [routerLink]="['/bodeguero/detalleProd',i]" class="fas fa-angle-right"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+    </div>
+  </div>
+
+</div>

@@ -37,8 +37,6 @@ import { AppRoutingModule } from './app-routing.module';
     PrincipalBodComponent,
     PrincipalCajComponent,
     NavBodComponent,
-    
-   
   ],
   imports: [
     BrowserModule,
