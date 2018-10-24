@@ -11,7 +11,7 @@ export class NewCompraComponent implements OnInit {
 
   compra: Compra;
   productos: Producto[];
-
+  cont: number = 1;
   success = false;
   danger = false;
   msg = 'usuario creado';
@@ -27,8 +27,13 @@ export class NewCompraComponent implements OnInit {
   }
 
   addProduct(){
-   var p = new Producto();
+   let p = new Producto();
+   p.nombre ="prod1-"+this.cont;
+   p.precio = 125000 * this.cont;
+   p.cantidad = 6 * this.cont;
+   p.total = p.precio * p.cantidad;
    this.productos.push(p);
+   this.cont ++;
   }
 
   addCantidad(i){

@@ -6,12 +6,15 @@ export class Cliente {
     nombre: string;
     Compras: Compra[];
 
-    constructor(id: number, identificacion: number, nombre: string, compras: Compra[])
+    constructor(){
+
+    }
+    /*constructor(id: number, identificacion: number, nombre: string, compras: Compra[])
     {
         this.id =  id;
         this.identificacion = identificacion;
         this.nombre =  nombre;
         this.Compras =  compras;
-    }
+    }*/
 
 }
