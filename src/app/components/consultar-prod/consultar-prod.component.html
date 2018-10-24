@@ -1,3 +1,91 @@
-<p>
-  consultar-prod works!
-</p>
+<div class="container">
+  <div class="row">
+
+    <div class="col borde">
+      <h3>Busqueda</h3>
+      <form class="form-inline my-2 my-lg-0">
+        <label class="mr-3" for="exampleInputEmail1">Nombre</label>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <div class="col p-0">
+            <button class=" btn btn-outline-info my-2 my-sm-0  right" type="submit">Search</button>
+        </div>
+
+
+
+        <div class="form-group mt-3 col p-0">
+            <label for="exampleFormControlSelect1" class="mr-3">Precio entre</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>1000</option>
+              <option>10000</option>
+              <option>30000</option>
+              <option>50000</option>
+              <option>100000</option>
+            </select>
+
+            <label for="exampleFormControlSelect1" class="mx-3"> Y </label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>5000</option>
+              <option>20000</option>
+              <option>40000</option>
+              <option>70000</option>
+              <option>200000</option>
+            </select>
+            <div class="col p-0">
+                <button class="btn btn-outline-info my-2 my-sm-0  right" type="submit">Search</button>
+            </div>
+          </div>
+
+          <div class="form-group mt-3 col p-0">
+              <label for="exampleFormControlSelect1" class="mr-3">Cantidad entre</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>0</option>
+                <option>100</option>
+                <option>250</option>
+                <option>500</option>
+                <option>1000</option>
+              </select>
+
+              <label for="exampleFormControlSelect1" class="mx-3"> Y </label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>50</option>
+                <option>150</option>
+                <option>300</option>
+                <option>700</option>
+                <option>1500</option>
+              </select>
+              <div class="col p-0">
+                  <button class="btn btn-outline-info my-2 my-sm-0  right" type="submit">Search</button>
+              </div>
+            </div>
+      </form>
+    </div>
+    <div class="col-12 col-lg-7 borde">
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+          <h3>Resultados</h3>
+        </form>
+      </nav>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio Und</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of prueba; let i = index" [routerLink]="['/bodeguero/detalleProd',i]">
+              <th scope="row">{{i}}</th>
+              <td>Mark11111111111111111111111111</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
