@@ -2,34 +2,35 @@
   detalle-prod works!
 </p>
 <h3>el ID introducido fue: {{id}}</h3>
+<button class="btn btn-info" [routerLink]="['/bodeguero/inventario']">Atras</button>
 <div id="DatosPersonales" class="borde">
-  <h4>Datos de la cuenta</h4>
+  <h4>Detalle del producto</h4>
   <div class="form-group row">
-      <label for="nombres" class="col-auto col-sm-3 col-form-label text-right">Nombres</label>
+      <label for="nombres" class="col-auto col-sm-3 col-form-label text-right">ID</label>
       <div class="col-11 col-sm-8 col-lg-7">
-          <input class="form-control" type="text" placeholder="Ingrese sus nombres" id="nombres">
+          <input class="form-control disable" type="text" placeholder="Ingrese sus nombres" id="nombres">
       </div>
   </div>
   <div class="form-group row">
-      <label for="Apellidos" class="col-auto col-sm-3 col-form-label text-right">Apellidos</label>
+      <label for="Apellidos" class="col-auto col-sm-3 col-form-label text-right">Cantidad</label>
       <div class="col-11 col-sm-8 col-lg-7">
           <input class="form-control" type="text" placeholder="Ingrese sus apellidos" id="Apellidos">
       </div>
   </div>
   <div class="form-group row">
-      <label for="Correo" class="col-auto col-sm-3 col-form-label text-right">Correo</label>
+      <label for="Correo" class="col-auto col-sm-3 col-form-label text-right">codigoSKU</label>
       <div class="col-11 col-sm-8 col-lg-7">
           <input class="form-control" type="email" placeholder="bootstrap@example.com" id="Correot">
       </div>
   </div>
   <div class="form-group row">
-      <label for="Telefono" class="col-auto col-sm-3 col-form-label text-right">Teléfono</label>
+      <label for="Telefono" class="col-auto col-sm-3 col-form-label text-right">Nombre</label>
       <div class="col-11 col-sm-8 col-lg-7">
           <input class="form-control" type="tel" placeholder="1-(555)-555-5555" id="Telefono">
       </div>
   </div>
   <div class="form-group row">
-      <label for="Contraseña" class="col-auto col-sm-3 col-form-label text-right">Contraseña</label>
+      <label for="Contraseña" class="col-auto col-sm-3 col-form-label text-right">Precio</label>
       <div class="col-11 col-sm-8 col-lg-7">
           <input class="form-control" type="password" placeholder="Ingrese la contraseña" id="Contraseña">
       </div>
