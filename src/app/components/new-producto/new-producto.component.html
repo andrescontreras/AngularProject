@@ -5,117 +5,53 @@
 
       <!-- cajas-->
       <div class="form-group row">
-        <label for="cantidad" class="col-sm-2 col-form-label text-right">Cantidad</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="cantidad" placeholder="Cantidad">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="CodigoSKU" class="col-sm-2 col-form-label text-right">CodigoSKU</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="CodigoSKU" placeholder="CodigoSKU">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="Compra" class="col-sm-2 col-form-label text-right">Compra</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="Compra" placeholder="Compra">
-        </div>
-      </div>
-      <div class="form-group row">
         <label for="Nombre" class="col-sm-2 col-form-label text-right">Nombre</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="Nombre" placeholder="Nombre">
+          <input type="text" class="form-control" id="Nombre" placeholder="Ej: galletas" [(ngModel)]="producto.nombre" name="nombre">
         </div>
       </div>
       <div class="form-group row">
         <label for="Precio" class="col-sm-2 col-form-label text-right">Precio</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="Precio" placeholder="Precio">
+          <input type="text" class="form-control" id="Precio" placeholder="Ej: 1200 " [(ngModel)]="producto.precio" name="precio">
+          <small id="emailHelp" class="form-text text-muted text-left">El precio es dado en pesos colombianos (COP).</small>
         </div>
       </div>
       <div class="form-group row">
         <label for="Unidad medida" class="col-sm-2 col-form-label text-right">Unidad medida</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="Unidad medida" placeholder="Unidad medida">
+          <input type="text" class="form-control" id="Unidad medida" placeholder="Ej: Und | Kg | Lb etc" [(ngModel)]="producto.undMed"
+            name="undMed">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="cantidad" class="col-sm-2 col-form-label text-right">Cantidad</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="cantidad" placeholder="EJ: 300" [(ngModel)]="producto.cantidad"
+            name="cantidad">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="CodigoSKU" class="col-sm-2 col-form-label text-right">CodigoSKU</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="CodigoSKU" placeholder="Ej: 2120011154021" [(ngModel)]="producto.codigoSKU"
+            name="codigoSKU">
         </div>
       </div>
 
-      <!-- cajas-->
+
+
+      <p>{{producto.cantidad}}</p>
+      <p>{{producto.codigoSKU}}</p>
+      <p>{{producto.id}}</p>
+      <p>{{producto.nombre}}</p>
+      <p>{{producto.precio}}</p>
+      <p>{{producto.total}}</p>
 
     </div>
   </form>
-  <div class="borde">
-    <div>
-      <h4 class="text-left">Items del producto</h4>
-      <p>A continuación deberá poner las formas de contacto que quiere publicar, especificando el tipo de contacto. De esta forma si el tipo de contacto es número de teléfono, en la parte de detalle deberá poner el numero o si el tipo de contacto es correo, en la parte de detalle deberá poner el correo.</p>
-      <div class="container">
-          <div class="row">
-              <div class="col">
-                  <form>
-                      <div class="form-group row">
-                          <label for="inputEmail3" class="col-sm-2 col-form-label">Tipo contacto</label>
-                          <div class="col-sm-10">
-                              <select name="tcontacto" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="Preferencias"
-                                  placeholder="seleccione uno" [(ngModel)]="tcontacto">
-                                  <option selected>Seleccione uno</option>
-                                  <option value="Teléfono fijo">Telefono fijo</option>
-                                  <option value="Teléfono móvil">Teléfono móvil</option>
-                                  <option value="Correo electrónico">Correo electrónico</option>
-                              </select>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="inputPassword3" class="col-sm-2 col-form-label">Detalle</label>
-                          <div class="col-sm-10">
-                              <input type="text" [(ngModel)]="contacto" name="contacto" class="form-control" id="inputPassword3"
-                                  placeholder="número o email">
-                          </div>
-                      </div>
-
-                      <div class="form-group row ">
-                          <div class="col-12 text-right">
-                              <button type="submit" (click)="addContacto()" class="btn btn-info">Agregar</button>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-              <div class="col">
-                  <div class="table-responsive">
-                      <table class="table table-sm">
-                          <thead>
-                              <tr>
-                                  <th scope="col">Tipo</th>
-                                  <th scope="col-2">Detalle</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr *ngFor="let item of lista ; let i = index">
-
-                                  <td class="">{{item.tipo}}</td>
-                                  <td class="">{{item.contacto}}</td>
-                                  <td class="">
-                                      <i (click)="editContacto(i)" data-toggle="modal" data-target="#EditModal"
-                                          class="fas pr-3 fa-pencil-alt"></i>
-                                      <i (click)="deleteContacto(i)" class="far  fa-trash-alt"></i>
-                                  </td>
-
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  </div>
-
   <div class="text-right col-12 my-2">
-    <button type="button"  class="btn btn-info mx-1" data-toggle="modal" data-target="#confirmacion">Guardar</button>
+    <button type="button" class="btn btn-info mx-1" data-toggle="modal" data-target="#confirmacion">Guardar</button>
     <button type="button" routerLink="/login/" class="btn btn-info mx-1">Cancelar</button>
   </div>
 </div>
-
-
-
-
