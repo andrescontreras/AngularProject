@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {RestCLientService } from '../../services/rest-client.service';
+//import {RestCLientService } from '../../services/rest-client.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Usuario } from 'src/app/class/usuario';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +10,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  user = '';
-  password = '';
+  usuario: Usuario;
   result: any ;
   message: any;
   constructor(private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
+    this.usuario = new Usuario();
   }
 
   gotoHeroes(n) {
