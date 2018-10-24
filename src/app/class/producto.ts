@@ -1,13 +1,16 @@
 export class Producto {
     id: number;
-    cantidad: number;
     codigoSKU: number;
     nombre: string;
     precio: number;
     undMed: string;
     total: number;
+    cantidad: number;
+    constructor() {
 
-    constructor (id: number, cantidad: number, codigoSKU: number, nombre: string, precio: number, undMed: string)
+    }
+
+    /*constructor (id: number, cantidad: number, codigoSKU: number, nombre: string, precio: number, undMed: string)
     // tslint:disable-next-line:one-line
     {
         this.id = id;
@@ -17,5 +20,5 @@ export class Producto {
         this.precio =  precio;
         this.undMed =  undMed;
         this.total = cantidad * precio;
-    }
+    }*/
 }

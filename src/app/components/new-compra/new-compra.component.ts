@@ -27,7 +27,7 @@ export class NewCompraComponent implements OnInit {
   }
 
   addProduct(){
-   var p = new Producto(1, 10, 12165464, 'papas', 30000, 'Kg');
+   var p = new Producto();
    this.productos.push(p);
   }
 
@@ -35,7 +35,7 @@ export class NewCompraComponent implements OnInit {
     this.productos[i].cantidad = this.productos[i].cantidad + 1;
   }
 
-  
+
   removeCantidad(i){
 
     var cant = this.productos[i].cantidad - 1;
@@ -51,7 +51,7 @@ export class NewCompraComponent implements OnInit {
   // parte usuario
   buscarUser(){
     this.success = !this.success;
-    this.danger = !this.success; 
+    this.danger = !this.success;
   }
 
   crearUser(){
