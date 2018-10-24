@@ -1,53 +1,76 @@
-<p>
-  registro works!
-</p>
 <div class="container">
-  <form>
-    <div class="form-group row">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Usuario</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputEmail3" placeholder="Usuario">
-      </div>
+    <div class="bg-info text-white py-4">
+        <h3 class="my-3 ml-3 text-left">Registro de cuenta</h3>
     </div>
-    <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
-      <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Confirmar</label>
-      <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-      </div>
-    </div>
+    <form action="">
+        <div id="DatosPersonales" class="borde">
+            <h4 class="text-left">Datos de la cuenta</h4>
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label text-right">Usuario</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputEmail3" placeholder="Usuario">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label text-right">Contraseña</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label text-right">Confirmar</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                </div>
+              </div>
 
-    <fieldset class="form-group">
-      <div class="row">
-        <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label" for="gridRadios1">
-              Bodeguero
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            <label class="form-check-label" for="gridRadios2">
-              Cajero
-            </label>
-          </div>
-          
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-2 pt-0 text-right">Radios</legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                      <label class="form-check-label" for="gridRadios1">
+                        Bodeguero
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                      <label class="form-check-label" for="gridRadios2">
+                        Cajero
+                      </label>
+                    </div>
+
+                  </div>
+                </div>
+              </fieldset>
+        </div>
+
+        <div class="text-right col-12 my-2">
+            <button type="button"  class="btn btn-info mx-1" data-toggle="modal" data-target="#confirmacion">Registrarse</button>
+            <button type="button" routerLink="/login/" class="btn btn-info mx-1">Cancelar</button>
+        </div>
+    </form>
+    <app-footer></app-footer>
+</div>
+
+<!-- modal -->
+<div class="modal" id="confirmacion" aria-labelledby="confirmacion" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Estado del registro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Sus datos de cuenta has sido guardados correctamente, ya puede iniciar sesión en el portal</p>
+        </div>
+        <div class="modal-footer">
+          <button #btnClose type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" routerLink="/login/" class="btn btn-info">Terminar registro</button>
         </div>
       </div>
-    </fieldset>
-    
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <button type="submit" class="btn btn-primary mr-3" routerLink="/login" >Registrarse</button>
-        <button type="submit" class="btn btn-primary" routerLink="/login" >Cancelar</button>
-      </div>
     </div>
-  </form>
-</div>
+  </div>
