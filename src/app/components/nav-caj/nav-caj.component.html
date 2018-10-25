@@ -4,7 +4,7 @@
       <h1 class="mx-2"> </h1>
     </div>
     <div class="col-auto pb-2 pt-2">
-      <button class="btn btn-dark" routerLink="/login">Cerrar sesión</button>
+      <button class="btn btn-dark" (click)="logout()">Cerrar sesión</button>
       <button class="btn btn-dark mx-2" routerLink="/principal/cuenta">Cuenta</button>
     </div>
   </div>
@@ -24,7 +24,7 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/cajero/consular-prod">Consultar producto</a>
       </li>
-      
+
     </ul>
   </div>
 </nav>

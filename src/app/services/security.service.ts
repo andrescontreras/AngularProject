@@ -23,4 +23,16 @@ export class SecurityService {
     });
   }
 
+  logout() {
+    return this.http.post('http://localhost:8080/logout', '', {
+      withCredentials: true
+    });
+  }
+
+  tipousuario() {
+    const params = new HttpParams()
+    return this.http.post('http://localhost:8080/api/current-user', "", {
+      withCredentials: true
+    });
+  }
 }

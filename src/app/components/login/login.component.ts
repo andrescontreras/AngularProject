@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//import {RestCLientService } from '../../services/rest-client.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/class/usuario';
 import { SecurityService } from 'src/app/services/security.service';
@@ -25,24 +24,38 @@ export class LoginComponent implements OnInit {
   doLogin() {
     console.log(this.usuario.usuario,"--",this.usuario.contrasena);
     this.security.login(this.usuario.usuario, this.usuario.contrasena).subscribe(data => {
-        this.message = 'Login Ok';
+        console.log("CORRECTO");
+
+
       }, error => {
-        console.error(error);
+        console.error("ERROR",error);
         this.message = JSON.stringify(error);
       });
-  }
 
-  gotoHeroes(n) {
+      this.redireccionar();
+    }
+
+  redireccionar() {
+    let tipo;
     console.log("ROUTER");
-    this.router.navigate(['/cajero']);
-    if(n === 1)
-    {
-      this.router.navigate(['/cajero']);
-    }
-    else if(n == 2)
-    {
-      this.router.navigate(['/bodeguero']);
-    }
+    //this.router.navigate(['/cajero']);
+    this.security.tipousuario().subscribe(data => {
+      console.log("CORRECTO", data);
+      tipo = JSON.stringify(data);
+      console.log("+++++++++ES: ",tipo);
+      if(tipo === "{\"rol\":\"CAJERO\"}")
+      {
+        this.router.navigate(['/cajero']);
+      }
+      else
+      {
+        this.router.navigate(['/bodeguero']);
+      }
+
+    }, error => {
+      console.error("ERROR",error);
+      this.message = JSON.stringify(error);
+    });
   }
 
 
