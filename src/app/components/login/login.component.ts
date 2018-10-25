@@ -21,6 +21,17 @@ export class LoginComponent implements OnInit {
     this.usuario = new Usuario();
   }
 
+  login1()
+  {
+    if(this.usuario.usuario === 'a')
+      {
+        this.router.navigate(['/cajero']);
+      }
+      else
+      {
+        this.router.navigate(['/bodeguero']);
+      }
+  }
   doLogin() {
     console.log(this.usuario.usuario,"--",this.usuario.contrasena);
     this.security.login(this.usuario.usuario, this.usuario.contrasena).subscribe(data => {

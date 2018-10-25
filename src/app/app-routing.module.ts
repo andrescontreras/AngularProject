@@ -11,11 +11,14 @@ import { NewCompraComponent } from './components/new-compra/new-compra.component
 import { HistorialComprasComponent } from './components/historial-compras/historial-compras.component';
 import { ConsultarProdComponent } from './components/consultar-prod/consultar-prod.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
+import { AuthGuard } from './auth/auth.guard';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent},
   { path: 'bodeguero', component: PrincipalBodComponent,
+    canActivateChild: [AuthGuard],
     children: [
       { path: 'newProduct', component: NewProductoComponent },
       { path: 'inventario', component: InventarioComponent},
@@ -26,6 +29,7 @@ const routes: Routes = [
     ]
   },
   { path: 'cajero', component: PrincipalCajComponent,
+    canActivateChild: [AuthGuard],
     children: [
     { path: 'compra', component: NewCompraComponent},
     { path: 'historial', component: HistorialComprasComponent},
