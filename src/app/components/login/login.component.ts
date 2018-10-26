@@ -33,17 +33,17 @@ export class LoginComponent implements OnInit {
       }
   }
   doLogin() {
-    console.log(this.usuario.usuario,"--",this.usuario.contrasena);
-    this.security.login(this.usuario.usuario, this.usuario.contrasena).subscribe(data => {
+    console.log(this.usuario.usuario,"--",this.usuario.password);
+    this.security.login(this.usuario.usuario, this.usuario.password).subscribe(data => {
         console.log("CORRECTO");
-
+        this.redireccionar();
 
       }, error => {
         console.error("ERROR",error);
         this.message = JSON.stringify(error);
       });
 
-      this.redireccionar();
+
     }
 
   redireccionar() {

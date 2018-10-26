@@ -1,7 +1,7 @@
 export class Usuario {
     id: number;
     usuario: string;
-    contrasena: string;
+    password: string;
     tipo: string;
 
     /*constructor (id: number, usuario:string, contraseña: string, tipo: string){
