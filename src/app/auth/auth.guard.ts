@@ -15,6 +15,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     state: RouterStateSnapshot): boolean {
       
       if(this.securityService.isLoggedIn){
+        console.log("En canActivate , isLoggedIn es : ",this.securityService.isLoggedIn);
         if(this.securityService.rol==="{\"rol\":\"CAJERO\"}"){
           this.router.navigate(['/cajero']);
           return false
@@ -33,6 +34,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   }
 
   checkLogin(url: string): boolean {
+    console.log("En checkLogin(), esto es isLoggedIn ---->",this.securityService.isLoggedIn);
     if (!this.securityService.isLoggedIn) {
       // Store the attempted URL for redirecting
       this.securityService.redirectUrl = url;
@@ -50,6 +52,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     //console.log('checking child route access');
     //return true;
     let url: string = state.url;
+    console.log("Esto es lo que llega de url ",url);
     console.log("Imprimo en canActivateChild ",this.checkLogin(url));
     return this.checkLogin(url);
   }
