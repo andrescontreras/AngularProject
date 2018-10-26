@@ -24,13 +24,14 @@ export class SecurityService {
       withCredentials: true
     });
   }
-  /*
+  
   logout() {
     this.isLoggedIn = false;
+    console.log("Se va a intentar deslogear");
     return this.http.post('http://localhost:8080/logout', '', {
       withCredentials: true
     });
-  }*/
+  }
   tipousuario() {
     const params = new HttpParams()
     return this.http.post('http://localhost:8080/api/current-user', "", {
@@ -49,8 +50,9 @@ export class SecurityService {
     this.isLoggedIn=true;
   }
   */
+ /*
   logout(): void {
     this.isLoggedIn = false;
-  }
+  }*/
   
 }
