@@ -1,11 +1,11 @@
 export class Producto {
     id: number;
-    codigoSKU: number;
+    codigoSKU: string;
     nombre: string;
     precio: number;
     undMed: string;
-    total: number;
     cantidad: number;
+
     constructor() {
 
     }

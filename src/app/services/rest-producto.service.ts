@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class RestProductoService {
 
   baseUrl = environment.baseUrl;
-  url = this.baseUrl + '/cliente';
+  url = this.baseUrl + '/producto';
   constructor(private http: HttpClient) { }
 
   getAllData(): Observable<Producto[]>{
