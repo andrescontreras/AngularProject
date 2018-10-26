@@ -1,35 +1,46 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
+import { SecurityService } from '../services/security.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private securityService: SecurityService, private router: Router) {}
 
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-    //console.log('i am checking to see if you are logged in');
-    //return false;
-    let url: string = state.url;
+      
+      if(this.securityService.isLoggedIn){
+        if(this.securityService.rol==="{\"rol\":\"CAJERO\"}"){
+          this.router.navigate(['/cajero']);
+          return false
+        }else if(this.securityService.rol==="{\"rol\":\"BODEGUERO\"}"){
+          this.router.navigate(['/bodeguero']);
+          return false
+        }
+        //Colocar condicional de si this.securityService.tipo es igual a cajero
+        //redirecciono a la principal de cajero y retorno false
 
-    return this.checkLogin(url);
+        //El mismo if pero con tipo igual a bodeguero
+        return false
+      }
+    return true;
 
   }
 
   checkLogin(url: string): boolean {
-    if (this.authService.isLoggedIn) { return true; }
-
-    // Store the attempted URL for redirecting
-    this.authService.redirectUrl = url;
-
-    // Navigate to the login page with extras
-    this.router.navigate(['/login']);
-    return false;
+    if (!this.securityService.isLoggedIn) {
+      // Store the attempted URL for redirecting
+      this.securityService.redirectUrl = url;
+      // Navigate to the login page with extras
+      this.router.navigate(['/login']);
+      return false; 
+    }
+      return true;
   }
 
   canActivateChild(
@@ -39,7 +50,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     //console.log('checking child route access');
     //return true;
     let url: string = state.url;
-
+    console.log("Imprimo en canActivateChild ",this.checkLogin(url));
     return this.checkLogin(url);
   }
 }
