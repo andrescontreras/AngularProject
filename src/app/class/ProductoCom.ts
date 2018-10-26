@@ -7,7 +7,6 @@ export class ProductoCom {
   nombre: string;
   precio: number;
   undMed: string;
-  total: number;
   cantidad: number;
   compra: Compra;
 

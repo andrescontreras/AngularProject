@@ -38,10 +38,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/bodeguero']);
       }
   }
-  
+
   doLogin() {
-    console.log(this.usuario.usuario,"--",this.usuario.contrasena);
-    this.security.login(this.usuario.usuario, this.usuario.contrasena).subscribe(data => {
+    console.log(this.usuario.usuario,"--",this.usuario.password);
+    this.security.login(this.usuario.usuario, this.usuario.password).subscribe(data => {
         console.log("CORRECTO");
         this.security.isLoggedIn=true;
         this.redireccionar();
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         this.security.isLoggedIn=false;
       });
     }
-    
+
 
   redireccionar() {
     console.log("ROUTER en redireccionar");
@@ -91,6 +91,6 @@ export class LoginComponent implements OnInit {
       this.security.isLoggedIn=false;
     });
   }
-  
+
 }
 
