@@ -31,7 +31,6 @@ export class NewCompraComponent implements OnInit {
    p.nombre ="prod1-"+this.cont;
    p.precio = 125000 * this.cont;
    p.cantidad = 6 * this.cont;
-   p.total = p.precio * p.cantidad;
    this.productos.push(p);
    this.cont ++;
   }

@@ -15,9 +15,11 @@ export class InventarioComponent implements OnInit {
 
   ngOnInit() {
     this.prueba = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    this.getDatos();
   }
 
   getDatos(){
+    console.log("ENTRO get datos");
     this.service.getAllData().subscribe(p => this.productos = p);
   }
 }
