@@ -1,6 +1,8 @@
+import { Cliente } from './../../class/cliente';
 import { Component, OnInit } from '@angular/core';
 import { Compra } from 'src/app/class/compra';
 import { Producto } from 'src/app/class/producto';
+import { Usuario } from 'src/app/class/usuario';
 
 @Component({
   selector: 'app-new-compra',
@@ -11,18 +13,21 @@ export class NewCompraComponent implements OnInit {
 
   compra: Compra;
   productos: Producto[];
+  cliente: Cliente;
   cont: number = 1;
   success = false;
   danger = false;
   msg = 'usuario creado';
   constructor() {
     this.productos = [];
+    this.cliente = new Cliente();
    }
 
   ngOnInit() {
   }
 
   terminarCompra(){
+      this.compra.productos = this.productos;
 
   }
 
@@ -62,5 +67,7 @@ export class NewCompraComponent implements OnInit {
     this.danger = !this.danger;
     this.success = !this.danger;
   }
+
+
 
 }
