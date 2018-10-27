@@ -48,7 +48,7 @@
             <div class="input-group-prepend">
               <div class="input-group-text">ID</div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="ID">
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" name="skup" [(ngModel)] = "skup" placeholder="Cod SKU">
           </div>
 
           <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
@@ -56,10 +56,10 @@
             <div class="input-group-prepend">
               <div class="input-group-text">Nombre</div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" name="nombrep" [(ngModel)] = "nombrep" placeholder="nombre">
           </div>
 
-          <button type="submit" class="btn btn-info mb-2" (click)="addProduct()">Agregar</button>
+          <button type="submit" class="btn btn-info mb-2" (click)="buscarProd()">Agregar</button>
 
         </form>
 
