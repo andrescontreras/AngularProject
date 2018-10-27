@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Compra } from 'src/app/class/compra';
 import { Producto } from 'src/app/class/producto';
 import { Usuario } from 'src/app/class/usuario';
+import { isEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-compra',
@@ -10,6 +11,9 @@ import { Usuario } from 'src/app/class/usuario';
   styleUrls: ['./new-compra.component.css']
 })
 export class NewCompraComponent implements OnInit {
+
+  skup = "";
+  nombrep = "";
 
   compra: Compra;
   productos: Producto[];
@@ -56,6 +60,21 @@ export class NewCompraComponent implements OnInit {
     }
   }
 
+  buscarProd(){
+    if(this.skup != "")
+    {
+      // bucar producto por SKU
+
+    }
+    else if( this.nombrep != "")
+    {
+      // buscar producto por nombre
+    }
+    else{
+      // mostrar error
+    }
+
+  }
 
   // parte usuario
   buscarUser(){
