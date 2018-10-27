@@ -17,6 +17,7 @@ export class NavCajComponent implements OnInit {
   }
 
   logout() {
+    
     this.security.logout().subscribe(data => {
         console.log("Cerro sesion");
         this.router.navigate(['/login']);
@@ -24,5 +25,7 @@ export class NavCajComponent implements OnInit {
         console.error(error);
         console.log("ERROR", error);
       });
+      
+     //this.security.logout();
   }
 }

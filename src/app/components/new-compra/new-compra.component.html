@@ -48,7 +48,7 @@
             <div class="input-group-prepend">
               <div class="input-group-text">ID</div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="ID">
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" name="skup" [(ngModel)] = "skup" placeholder="Cod SKU">
           </div>
 
           <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
@@ -56,10 +56,10 @@
             <div class="input-group-prepend">
               <div class="input-group-text">Nombre</div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+            <input type="text" class="form-control" id="inlineFormInputGroupUsername2" name="nombrep" [(ngModel)] = "nombrep" placeholder="nombre">
           </div>
 
-          <button type="submit" class="btn btn-info mb-2" (click)="addProduct()">Agregar</button>
+          <button type="submit" class="btn btn-info mb-2" (click)="buscarProd()">Agregar</button>
 
         </form>
 
@@ -95,8 +95,10 @@
             {{msg}}
           </div>
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons"
-              aria-describedby="button-addon4">
+            <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario"
+              aria-describedby="button-addon4" [(ngModel)]="cliente.nombre" name="nombre">
+              <input type="text" class="form-control" placeholder="Identificacion" aria-label="Identificacion"
+              aria-describedby="button-addon4" [(ngModel)]="cliente.identificacion" name="identificacion">
             <div class="input-group-append" id="button-addon4">
               <button class="btn btn-outline-secondary" type="button" (click)="buscarUser()">Buscar</button>
               <button class="btn btn-outline-secondary" type="button" (click)="crearUser()">Crear</button>

@@ -1,7 +1,7 @@
 import { Producto } from './../class/producto';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -10,11 +10,35 @@ import { environment } from 'src/environments/environment';
 export class RestProductoService {
 
   baseUrl = environment.baseUrl;
-  url = this.baseUrl + '/cliente';
+  url = this.baseUrl + '/producto';
   constructor(private http: HttpClient) { }
 
   getAllData(): Observable<Producto[]>{
-
-    return this.http.get<Producto[]>(this.url);
+    return this.http.get<Producto[]>(this.url, {
+      withCredentials: true
+    });
+  }
+  getProductoByID(id): Observable<Producto>{
+    return this.http.get<Producto>(this.url+ "/"+String(id), {
+      withCredentials: true
+    });
+  }
+  crearProducto(producto :Producto){
+    console.log(this.url+"/crear");
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post<Producto>(this.url+"/crear",producto, {
+      headers: headers,
+      withCredentials: true
+    });
+  }
+  actualizarProducto(producto :Producto): Observable<Producto>{
+    console.log(this.url+"/update")
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put<Producto>(this.url+"/update",producto, {
+      headers: headers,
+      withCredentials: true
+    }); 
   }
 }

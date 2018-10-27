@@ -1,6 +1,9 @@
+import { Cliente } from './../../class/cliente';
 import { Component, OnInit } from '@angular/core';
 import { Compra } from 'src/app/class/compra';
 import { Producto } from 'src/app/class/producto';
+import { Usuario } from 'src/app/class/usuario';
+import { isEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-compra',
@@ -9,20 +12,26 @@ import { Producto } from 'src/app/class/producto';
 })
 export class NewCompraComponent implements OnInit {
 
+  skup = "";
+  nombrep = "";
+
   compra: Compra;
   productos: Producto[];
+  cliente: Cliente;
   cont: number = 1;
   success = false;
   danger = false;
   msg = 'usuario creado';
   constructor() {
     this.productos = [];
+    this.cliente = new Cliente();
    }
 
   ngOnInit() {
   }
 
   terminarCompra(){
+      this.compra.productos = this.productos;
 
   }
 
@@ -31,7 +40,6 @@ export class NewCompraComponent implements OnInit {
    p.nombre ="prod1-"+this.cont;
    p.precio = 125000 * this.cont;
    p.cantidad = 6 * this.cont;
-   p.total = p.precio * p.cantidad;
    this.productos.push(p);
    this.cont ++;
   }
@@ -52,6 +60,21 @@ export class NewCompraComponent implements OnInit {
     }
   }
 
+  buscarProd(){
+    if(this.skup != "")
+    {
+      // bucar producto por SKU
+
+    }
+    else if( this.nombrep != "")
+    {
+      // buscar producto por nombre
+    }
+    else{
+      // mostrar error
+    }
+
+  }
 
   // parte usuario
   buscarUser(){
@@ -63,5 +86,7 @@ export class NewCompraComponent implements OnInit {
     this.danger = !this.danger;
     this.success = !this.danger;
   }
+
+
 
 }

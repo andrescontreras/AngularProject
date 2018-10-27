@@ -17,6 +17,7 @@ export class NavBodComponent implements OnInit {
   }
 
   logout() {
+    
     this.security.logout().subscribe(data => {
         console.log("Cerro sesion");
         this.router.navigate(['/login']);
@@ -24,6 +25,7 @@ export class NavBodComponent implements OnInit {
         console.error(error);
         console.log("ERROR", error);
       });
+      this.security.logout();
   }
 
 }
