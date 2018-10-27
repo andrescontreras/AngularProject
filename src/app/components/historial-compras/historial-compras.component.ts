@@ -1,6 +1,7 @@
 import { Compra } from './../../class/compra';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/class/cliente';
+import { RestCompraService } from '../../services/rest-compra.service'
 
 @Component({
   selector: 'app-historial-compras',
@@ -11,7 +12,7 @@ export class HistorialComprasComponent implements OnInit {
 
   compras: Compra[];
   prueba: number[];
-  constructor(private service: RestHistorialComprasService) { }
+  constructor(private service: RestCompraService) { }
 
   ngOnInit() {
     this.prueba = [0,1,2,3,4,5,6];
