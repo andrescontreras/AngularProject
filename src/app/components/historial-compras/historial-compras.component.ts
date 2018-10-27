@@ -13,7 +13,7 @@ export class HistorialComprasComponent implements OnInit {
   compras: Compra[];
   prueba: number[];
   constructor(private service: RestCompraService) { }
-
+  // cambio
   ngOnInit() {
     this.prueba = [0,1,2,3,4,5,6];
     this.compras = [];
@@ -26,7 +26,7 @@ export class HistorialComprasComponent implements OnInit {
     var c = new Compra();
     c.cliente = cli;
     c.fecha = "10/09/2018";
-    c.total = 23045; 
+    c.total = 23045;
 
   }
 
