@@ -7,44 +7,44 @@
   <div id="DatosPersonales" class="borde">
     <h4 class="text-left">Detalle del producto</h4>
     <div class="form-group row">
-      <label for="nombres" class="col-auto col-sm-3 col-form-label text-right">ID</label>
+      <label for="nombres" class="col-auto col-sm-3 col-form-label text-right" >ID</label>
       <div class="col-11 col-sm-8 col-lg-7">
-        <input class="form-control disable" type="text" placeholder="Ingrese sus nombres" id="nombres">
+        <input class="form-control disable" type="number" placeholder="1" [(ngModel)]="producto.id" name="id" >
       </div>
     </div>
     <div class="form-group row">
-      <label for="Apellidos" class="col-auto col-sm-3 col-form-label text-right">Cantidad</label>
+      <label for="Apellidos" class="col-auto col-sm-3 col-form-label text-right" >Cantidad</label>
       <div class="col-11 col-sm-8 col-lg-7">
-        <input class="form-control" type="text" placeholder="Ingrese sus apellidos" id="Apellidos">
+        <input class="form-control" type="text" placeholder="100" [(ngModel)]="producto.cantidad" name="cantidad" >
       </div>
     </div>
     <div class="form-group row">
-      <label for="Correo" class="col-auto col-sm-3 col-form-label text-right">codigoSKU</label>
+      <label for="Correo" class="col-auto col-sm-3 col-form-label text-right" >codigoSKU</label>
       <div class="col-11 col-sm-8 col-lg-7">
-        <input class="form-control" type="email" placeholder="bootstrap@example.com" id="Correot">
+        <input class="form-control" type="text" placeholder="fd33" [(ngModel)]="producto.codigoSKU" name="codigoSKU">
       </div>
     </div>
     <div class="form-group row">
-      <label for="Telefono" class="col-auto col-sm-3 col-form-label text-right">Nombre</label>
+      <label for="Nombre" class="col-auto col-sm-3 col-form-label text-right" >Nombre</label>
       <div class="col-11 col-sm-8 col-lg-7">
-        <input class="form-control" type="tel" placeholder="1-(555)-555-5555" id="Telefono">
+        <input class="form-control" type="text" placeholder="Manzana" [(ngModel)]="producto.nombre" name="nombre">
       </div>
     </div>
     <div class="form-group row">
-      <label for="Contraseña" class="col-auto col-sm-3 col-form-label text-right">Precio</label>
+      <label for="Precio" class="col-auto col-sm-3 col-form-label text-right" >Precio</label>
       <div class="col-11 col-sm-8 col-lg-7">
-        <input class="form-control" type="password" placeholder="Ingrese la contraseña" id="Contraseña">
+        <input class="form-control" type="number" placeholder="400" [(ngModel)]="producto.precio" name="precio">
       </div>
     </div>
     <div class="form-group row">
-      <label for="ConfContraseña" class="col-auto col-sm-3 col-form-label text-right">Confirmar contraseña</label>
+      <label for="UndMed" class="col-auto col-sm-3 col-form-label text-right" >Unidad de medida</label>
       <div class="col-11 col-sm-8 col-lg-7">
-        <input class="form-control" type="password" placeholder="Vuelva a escribir la contraseña" id="ConfContraseña">
+          <input class="form-control" type="text" placeholder="Lt" [(ngModel)]="producto.undMed" name="undMed">
       </div>
     </div>
   </div>
   <div class="text-right col-12 my-2">
-      <button type="button" class="btn btn-info mx-1" data-toggle="modal" data-target="#confirmacion">Guardar cambios</button>
+      <button type="button" class="btn btn-info mx-1" data-toggle="modal" data-target="#confirmacion" (click)="cambiarProducto()">Guardar cambios</button>
     </div>
 </div>
 
