@@ -10,10 +10,13 @@ import { Cliente } from 'src/app/class/cliente';
 export class HistorialComprasComponent implements OnInit {
 
   compras: Compra[];
-  constructor() { }
+  prueba: number[];
+  constructor(private service: RestHistorialComprasService) { }
 
   ngOnInit() {
+    this.prueba = [0,1,2,3,4,5,6];
     this.compras = [];
+    this.getDatos();
     var cli: Cliente;
     cli = new Cliente();
     cli.nombre = "clienteabc";
@@ -22,11 +25,13 @@ export class HistorialComprasComponent implements OnInit {
     var c = new Compra();
     c.cliente = cli;
     c.fecha = "10/09/2018";
-    c.total = 23045;
+    c.total = 23045; 
 
-    for (let i = 0; i < 10 ; i++) {
-      this.compras.push(c);
-    }
+  }
+
+  getDatos(){
+    console.log("Entrada historial compras");
+    this.service.getAllData().subscribe(p => this.compras = p);
   }
 
 }
