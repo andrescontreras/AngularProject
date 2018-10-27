@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Producto } from 'src/app/class/producto';
+import { RestProductoService } from '../../services/rest-producto.service'
 
 @Component({
   selector: 'app-detalle-prod',
@@ -9,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 export class DetalleProdComponent implements OnInit {
   equipo: any[] = [];
   id: number;
-  constructor(private ruta: ActivatedRoute) {
+  producto : Producto;
+  constructor(private ruta: ActivatedRoute,private service: RestProductoService) {
     this.ruta.params.subscribe(params => {
       console.log(params['id'] );
       this.id = params['id'];
@@ -19,6 +22,15 @@ export class DetalleProdComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.producto = new Producto();
+    this.getDatos();
   }
-
+  getDatos(){
+    console.log("ENTRO get datos del detalle del producto");
+    this.service.getProductoByID(this.id).subscribe(p => this.producto = p);
+  }
+  cambiarProducto(){
+    console.log("ENTRO get datos del detalle del producto");
+    this.service.actualizarProducto(this.producto).subscribe(p => this.producto = p);
+  }
 }
