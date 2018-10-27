@@ -22,4 +22,10 @@ export class InventarioComponent implements OnInit {
     console.log("ENTRO get datos");
     this.service.getAllData().subscribe(p => this.productos = p);
   }
+  eliminarItem(id){
+    console.log("ENTRO eliminar item");
+    this.service.deleteProducto(id).subscribe(p => {
+      this.getDatos();
+    });
+  }
 }
