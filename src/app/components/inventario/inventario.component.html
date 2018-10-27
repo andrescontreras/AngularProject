@@ -18,14 +18,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of productos; let i = index" [routerLink]="['/bodeguero/detalleProd',item.id]">
-              <th scope="row">{{item.id}}</th>
-              <td>{{item.nombre}}</td>
-              <td>{{item.cantidad}}}</td>
-              <td>{{item.precio}}</td>
-              <td>{{item.precio}}</td>
+            <tr *ngFor="let item of productos; let i = index" >
+              <th [routerLink]="['/bodeguero/detalleProd',item.id]" scope="row">{{item.id}}</th>
+              <td [routerLink]="['/bodeguero/detalleProd',item.id]">{{item.nombre}}</td>
+              <td [routerLink]="['/bodeguero/detalleProd',item.id]">{{item.cantidad}}</td>
+              <td [routerLink]="['/bodeguero/detalleProd',item.id]">{{item.precio}}</td>
+              <td [routerLink]="['/bodeguero/detalleProd',item.id]">{{item.precio}}</td>
               <td class="">
-                <i [routerLink]="['/bodeguero/detalleProd',item.id]" class="fas fa-trash-alt"></i>
+                <i (click)="eliminarItem(item.id)"class="fas fa-trash-alt"></i>
               </td>
             </tr>
           </tbody>
