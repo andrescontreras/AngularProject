@@ -24,7 +24,7 @@ export class NewProductoComponent implements OnInit {
   crearProducto(){
     console.log("ENTRO crearProducto"); 
     console.log("Producto antes de mandarlo ",this.producto);
-    this.service.crearProducto(this.producto).subscribe(p => {console.log(p)},
+    this.service.crearProducto(this.producto).subscribe(p => this.producto = p,
       error=>{console.error("ERROR",error);});
   }
 

@@ -27,13 +27,14 @@ export class RestProductoService {
     console.log(this.url+"/crear");
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
+    console.log(producto.nombre);
     return this.http.post<Producto>(this.url+"/crear",producto, {
       headers: headers,
       withCredentials: true
     });
   }
   actualizarProducto(producto :Producto): Observable<Producto>{
-    console.log(this.url+"/update")
+    console.log(this.url+"/update");
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http.put<Producto>(this.url+"/update",producto, {
