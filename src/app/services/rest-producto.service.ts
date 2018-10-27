@@ -15,8 +15,8 @@ export class RestProductoService {
 
   getAllData(): Observable<Producto[]>{
 
-    return this.http.get<Producto[]>(this.url,{
-      withCredentials:true
+    return this.http.get<Producto[]>(this.url, {
+      withCredentials: true
     });
   }
 }
