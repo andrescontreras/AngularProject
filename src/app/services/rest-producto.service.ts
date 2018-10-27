@@ -23,6 +23,20 @@ export class RestProductoService {
       withCredentials: true
     });
   }
+
+  getProductoBySKU(sku): Observable<Producto>{
+    this.url = this.url + '/c';
+    return this.http.get<Producto>(this.url+ "/"+String(sku), {
+      withCredentials: true
+    });
+  }
+
+  getProductoByNombre(nombre): Observable<Producto>{
+    return this.http.get<Producto>(this.url+ "/n/"+String(nombre), {
+      withCredentials: true
+    });
+  }
+
   crearProducto(producto :Producto){
     console.log(this.url+"/crear");
     const headers = new HttpHeaders();
@@ -39,6 +53,6 @@ export class RestProductoService {
     return this.http.put<Producto>(this.url+"/update",producto, {
       headers: headers,
       withCredentials: true
-    }); 
+    });
   }
 }
