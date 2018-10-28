@@ -24,8 +24,10 @@ export class RegistroComponent implements OnInit {
     }
     console.log("Estado de bodeguero ", this.bodeguero);
     console.log("Estado de cajero ", this.cajero);
-    //this.service.crearUsuario(this.usuario).subscribe(p => this.usuario = p,
-      //error=>{console.error("ERROR",error);});
+    this.service.crearUsuario(this.usuario).subscribe(p => {
+      this.usuario = p;
+      console.log("Se guardo el usuario ",p);},
+      error=>{console.error("ERROR",error);});
   }
   cambioCajero(){
     this.cajero=true;
