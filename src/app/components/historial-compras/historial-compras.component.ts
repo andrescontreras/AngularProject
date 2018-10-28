@@ -1,7 +1,6 @@
 import { Compra } from './../../class/compra';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/class/cliente';
-import { RestCompraService } from '../../services/rest-compra.service'
 
 @Component({
   selector: 'app-historial-compras',
@@ -11,13 +10,10 @@ import { RestCompraService } from '../../services/rest-compra.service'
 export class HistorialComprasComponent implements OnInit {
 
   compras: Compra[];
-  prueba: number[];
-  constructor(private service: RestCompraService) { }
-  // cambio
+  constructor() { }
+
   ngOnInit() {
-    this.prueba = [0,1,2,3,4,5,6];
     this.compras = [];
-    this.getDatos();
     var cli: Cliente;
     cli = new Cliente();
     cli.nombre = "clienteabc";
@@ -28,11 +24,9 @@ export class HistorialComprasComponent implements OnInit {
     c.fecha = "10/09/2018";
     c.total = 23045;
 
-  }
-
-  getDatos(){
-    console.log("Entrada historial compras");
-    this.service.getAllData().subscribe(p => this.compras = p);
+    for (let i = 0; i < 10 ; i++) {
+      this.compras.push(c);
+    }
   }
 
 }

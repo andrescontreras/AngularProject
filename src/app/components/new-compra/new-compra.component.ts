@@ -4,7 +4,6 @@ import { Compra } from 'src/app/class/compra';
 import { Producto } from 'src/app/class/producto';
 import { Usuario } from 'src/app/class/usuario';
 import { isEmpty } from 'rxjs/operators';
-import { RestProductoService } from 'src/app/services/rest-producto.service';
 
 @Component({
   selector: 'app-new-compra',
@@ -15,24 +14,20 @@ export class NewCompraComponent implements OnInit {
 
   skup = "";
   nombrep = "";
-  estado = "";
 
   compra: Compra;
   productos: Producto[];
   cliente: Cliente;
-  cantidades: number[];
   cont: number = 1;
   success = false;
   danger = false;
   msg = 'usuario creado';
-  constructor(private service: RestProductoService) {
-
+  constructor() {
+    this.productos = [];
+    this.cliente = new Cliente();
    }
 
   ngOnInit() {
-    this.productos = [];
-    this.cliente = new Cliente();
-    this.cantidades = [];
   }
 
   terminarCompra(){
@@ -40,16 +35,16 @@ export class NewCompraComponent implements OnInit {
 
   }
 
-  addProduct(p: Producto){
+  addProduct(){
+   let p = new Producto();
+   p.nombre ="prod1-"+this.cont;
+   p.precio = 125000 * this.cont;
+   p.cantidad = 6 * this.cont;
    this.productos.push(p);
    this.cont ++;
   }
 
   addCantidad(i){
-
-    if(this.productos[i].cantidad ){
-
-    }
     this.productos[i].cantidad = this.productos[i].cantidad + 1;
   }
 
@@ -66,39 +61,17 @@ export class NewCompraComponent implements OnInit {
   }
 
   buscarProd(){
-    console.log("ENTRO BUSCAR");
-    console.log("sku-",this.skup,"-nombre-",this.nombrep)
-    let product: Producto;
-    if(this.skup !== '')
+    if(this.skup != "")
     {
       // bucar producto por SKU
 
-
-      this.service.getProductoBySKU(this.skup).subscribe( (p: Producto)=> {
-        product = p;
-        this.estado = product.nombre;
-        this.addProduct(p);
-        this.skup = "";
-        this.nombrep ="";
-      });
-
-
-    } else if ( this.nombrep !== '')
+    }
+    else if( this.nombrep != "")
     {
       // buscar producto por nombre
-      this.service.getProductoByNombre(this.nombrep).subscribe( (p: Producto) => {
-        console.log("99999:" ,p);
-        product = p;
-        this.estado = product.nombre;
-        this.addProduct(p);
-        this.skup = "";
-        this.nombrep ="";
-      });
-      //this.estado =  product.nombre;
-    } else{
+    }
+    else{
       // mostrar error
-      this.estado = "VACIO";
-      console.log("VACIO");
     }
 
   }
