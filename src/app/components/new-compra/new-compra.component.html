@@ -1,5 +1,17 @@
 <div class="container">
   <h1 class="text-left">Nueva compra</h1>
+  <div *ngIf="alertCom" class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{messageCom}}
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div *ngIf="successCom" class="alert alert-success alert-dismissible fade show" role="alert">
+    {{messageCom}}
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 col-lg-7 borde">
@@ -9,6 +21,12 @@
           </form>
         </nav>
         <div class="table-responsive">
+            <div *ngIf="alertProd"  class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{messageProd}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
           <table class="table table-hover">
             <thead>
               <tr>
@@ -40,13 +58,18 @@
       </div>
       <div class="col borde">
         <h3 class="text-left">Nuevo item</h3>
-
+        <div *ngIf="alertAdd" class="alert alert-danger alert-dismissible fade show" role="alert">
+         {{messageAdd}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <form class="form-inline">
 
           <label class="sr-only" for="inlineFormInputGroupUsername2">ID</label>
           <div class="input-group mb-2 mr-sm-2">
             <div class="input-group-prepend">
-              <div class="input-group-text">ID</div>
+              <div class="input-group-text">SKU</div>
             </div>
             <input type="text" class="form-control" id="inlineFormInputGroupUsername2" name="skup" [(ngModel)] = "skup" placeholder="Cod SKU">
           </div>
@@ -65,11 +88,12 @@
 
       </div>
       <div class="text-right col-12 my-2">
-          <button type="button" class="btn btn-info mx-1" data-toggle="modal" data-target="#exampleModalCenter">Terminar
+          <button type="button" class="btn btn-info mx-1" data-toggle="modal" data-target="#exampleModalCenter" (click)="iniciarComp()">Terminar
             compra</button>
         </div>
     </div>
   </div>
+  <h4>ESTADO: {{estado}}</h4>
 </div>
 
 
@@ -88,17 +112,23 @@
         <div class="container-fluid">
 
           <!--Inicio-->
-          <div [hidden]="!success" class="alert alert-success" role="alert">
-            {{msg}}
-          </div>
-          <div [hidden]="!danger" class="alert alert-danger" role="alert">
-            {{msg}}
-          </div>
+          <div *ngIf="alertCli" class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{messageCli}}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <div *ngIf="successCli" class="alert alert-success alert-dismissible fade show" role="alert">
+            {{messageCli}}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario"
-              aria-describedby="button-addon4" [(ngModel)]="cliente.nombre" name="nombre">
+            <input type="text" class="form-control" placeholder="Cliente" aria-label="Usuario"
+              aria-describedby="button-addon4" [(ngModel)]="cliNom" name="nombre">
               <input type="text" class="form-control" placeholder="Identificacion" aria-label="Identificacion"
-              aria-describedby="button-addon4" [(ngModel)]="cliente.identificacion" name="identificacion">
+              aria-describedby="button-addon4" [(ngModel)]="cliId" name="identificacion">
             <div class="input-group-append" id="button-addon4">
               <button class="btn btn-outline-secondary" type="button" (click)="buscarUser()">Buscar</button>
               <button class="btn btn-outline-secondary" type="button" (click)="crearUser()">Crear</button>
@@ -108,19 +138,25 @@
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-2 col-form-label">Cliente</label>
               <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="indefinido">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" [(ngModel)]="cliente.nombre" name="nombrec">
               </div>
             </div>
             <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">No. prod</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" [(ngModel)]="numprod" name="numProd">
+                </div>
+              </div>
+            <div class="form-group row">
               <label for="staticEmail" class="col-sm-2 col-form-label">Total</label>
               <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="0">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" [(ngModel)]="compra.total" name="total">
               </div>
             </div>
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-2 col-form-label">Fecha</label>
               <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="10/23/2018">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" [(ngModel)]="compra.fecha" name="fecha">
               </div>
             </div>
           </form>
@@ -130,8 +166,10 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-info">Save changes</button>
+        <button type="button" class="btn btn-info"  (click)="terminarCompra()" data-dismiss="modal">Completar Compra</button>
       </div>
     </div>
   </div>
+
+
 </div>

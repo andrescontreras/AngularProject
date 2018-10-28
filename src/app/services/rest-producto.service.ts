@@ -23,27 +23,35 @@ export class RestProductoService {
       withCredentials: true
     });
   }
+
+  getProductoBySKU(sku): Observable<Producto>{
+    return this.http.get<Producto>(this.url+ "/c/"+String(sku), {
+      withCredentials: true
+    });
+  }
+
+  getProductoByNombre(nombre): Observable<Producto>{
+    return this.http.get<Producto>(this.url+ "/n/"+String(nombre), {
+      withCredentials: true
+    });
+  }
+
   crearProducto(producto :Producto){
-    console.log(this.url);
+    console.log(this.url+"/crear");
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    console.log(producto.nombre);
-    return this.http.post<Producto>(this.url,producto, {
+    return this.http.post<Producto>(this.url+"/crear",producto, {
       headers: headers,
       withCredentials: true
     });
   }
   actualizarProducto(producto :Producto): Observable<Producto>{
-    console.log(this.url);
+    console.log(this.url+"/update")
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.put<Producto>(this.url,producto, {
+    return this.http.put<Producto>(this.url+"/update",producto, {
       headers: headers,
       withCredentials: true
-    }); 
-  }
-  deleteProducto(id){
-    console.log(this.url);
-    return this.http.delete<Producto>(this.url+"/"+String(id),{withCredentials: true}); 
+    });
   }
 }
