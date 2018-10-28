@@ -23,6 +23,16 @@ export class RestProductoService {
       withCredentials: true
     });
   }
+
+  getProductoByNombre(nombre): Observable<Producto> {
+    //0console.log("nombre: " + nombre);
+    //const headers = new HttpHeaders();
+    //headers.append('Content-Type', 'application/json');
+    return this.http.get<Producto>(this.url+"/n/"+nombre,{
+    withCredentials: true
+    });
+  }
+
   crearProducto(producto :Producto){
     console.log(this.url);
     const headers = new HttpHeaders();
