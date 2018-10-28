@@ -16,7 +16,9 @@ export class RestCompraService {
   }
 
   getAllData(): Observable<Compra[]> {
-    return this.http.get<Compra[]>(this.url);
+    return this.http.get<Compra[]>(this.url, {
+      withCredentials: true
+    });
   }
 
 

@@ -2,9 +2,10 @@ import { Compra } from "./compra";
 
 export class Cliente {
     id: number;
+    compras: Compra[];
     identificacion: number;
     nombre: string;
-    Compras: Compra[];
+    
 
     constructor(){
 
