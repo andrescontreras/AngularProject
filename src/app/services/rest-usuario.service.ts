@@ -2,7 +2,7 @@ import { Usuario } from './../class/usuario';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders, HttpParams  } from '@angular/common/http';
 
 
 @Injectable({
@@ -16,5 +16,13 @@ export class RestUsuarioService {
   getAllData(): Observable<Usuario[]>{
 
     return this.http.get<Usuario[]>(this.url);
+  }
+  crearUsuario(usuario : Usuario){
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post<Usuario>(this.url,usuario, {
+      headers: headers,
+      withCredentials: true
+    });
   }
 }

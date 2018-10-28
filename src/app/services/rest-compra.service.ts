@@ -16,7 +16,14 @@ export class RestCompraService {
   }
 
   getAllData(): Observable<Compra[]> {
-    return this.http.get<Compra[]>(this.url);
+    return this.http.get<Compra[]>(this.url, {
+      withCredentials: true
+    });
+  }
+  getCompraByID(id){
+    return this.http.get<Compra>(this.url+ "/"+String(id), {
+      withCredentials: true
+    });
   }
 
   crearCompra(compra :Compra): Observable<Compra>{

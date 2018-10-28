@@ -11,6 +11,7 @@ import { NewCompraComponent } from './components/new-compra/new-compra.component
 import { HistorialComprasComponent } from './components/historial-compras/historial-compras.component';
 import { ConsultarProdComponent } from './components/consultar-prod/consultar-prod.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
+import {DetallesComprasComponent} from './components/detalles-compras/detalles-compras.component';
 import { AuthGuard } from './auth/auth.guard';
 
 
@@ -34,7 +35,7 @@ const routes: Routes = [
     { path: 'compra', component: NewCompraComponent},
     { path: 'historial', component: HistorialComprasComponent},
     { path: 'consular-prod', component: ConsultarProdComponent},
-
+    { path: 'detalleCompra/:id', component: DetallesComprasComponent },
 
     { path: '', component: NewCompraComponent, pathMatch: 'full' },
     { path: '**', redirectTo: '/cajero', pathMatch: 'full' }

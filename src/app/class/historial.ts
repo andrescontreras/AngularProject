@@ -1,10 +1,10 @@
-import { Compra } from "./compra";
 
-export class Cliente {
-    id: number;
-    compras: Compra[];
-    identificacion: number;
-    nombre: string;
+
+export class Historial {
+    idCompra : number;
+    cliente: string;
+    total: number;
+    fecha: string;
     
 
     constructor(){

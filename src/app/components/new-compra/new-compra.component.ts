@@ -8,6 +8,7 @@ import { isEmpty } from "rxjs/operators";
 import { RestProductoService } from "src/app/services/rest-producto.service";
 import { forEach } from "@angular/router/src/utils/collection";
 import { RestClienteService } from "src/app/services/rest-cliente.service";
+import { ProductoCom } from 'src/app/class/ProductoCom';
 
 @Component({
   selector: "app-new-compra",
@@ -35,7 +36,7 @@ export class NewCompraComponent implements OnInit {
   messageCom: string = "";
 
   compra: Compra;
-  productos: Producto[];
+  productos: ProductoCom[];
   inventario: Producto[];
   cliente: Cliente;
   cantidades: number[];
@@ -63,7 +64,7 @@ export class NewCompraComponent implements OnInit {
     this.compra.fecha = new Date().toLocaleDateString();
     this.total = 0;
     this.numprod = 0;
-    this.compra.productos = this.productos;
+    this.compra.comprados = this.productos;
     for (let entry of this.productos) {
       this.total += entry.cantidad * entry.precio;
       this.numprod += entry.cantidad;

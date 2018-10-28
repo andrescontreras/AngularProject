@@ -1,12 +1,12 @@
 import { Cliente } from "./cliente";
-import { Producto } from "./producto";
+import { ProductoCom } from "./ProductoCom";
 
 export class Compra {
     id: number;
     cliente: Cliente;
+    comprados: ProductoCom[];
     fecha: string;
     total: number;
-    productos: Producto[];
 
     /*constructor(id: number, cliente: Cliente, fecha:string, total:number, productos: Producto[]){
         this.id = id;

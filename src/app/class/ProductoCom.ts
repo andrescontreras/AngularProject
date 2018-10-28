@@ -3,12 +3,14 @@ import { Compra } from "./compra";
 
 export class ProductoCom {
   id: number;
+  cantidad: number;
   codigoSKU: number;
+  compra: Compra;
   nombre: string;
   precio: number;
   undMed: string;
-  cantidad: number;
-  compra: Compra;
+  
+ 
 
     constructor() {
 
