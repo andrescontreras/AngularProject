@@ -20,6 +20,7 @@ import { PrincipalBodComponent } from './components/principal-bod/principal-bod.
 import { PrincipalCajComponent } from './components/principal-caj/principal-caj.component';
 import { NavBodComponent } from './components/nav-bod/nav-bod.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DetallesComprasComponent } from './components/detalles-compras/detalles-compras.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { AppRoutingModule } from './app-routing.module';
     PrincipalBodComponent,
     PrincipalCajComponent,
     NavBodComponent,
+    DetallesComprasComponent,
   ],
   imports: [
     BrowserModule,

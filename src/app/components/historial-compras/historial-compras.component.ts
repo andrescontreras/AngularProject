@@ -44,10 +44,13 @@ export class HistorialComprasComponent implements OnInit {
       var j :number;
       var compra:Compra
       for(i=0;i<this.clientes.length;i++){
-        var itemHist : Historial = new Historial();
-        itemHist.cliente=this.clientes[i].nombre;
         for(j=0;j<this.clientes[i].compras.length;j++){
+          var itemHist : Historial = new Historial();
+          itemHist.cliente=this.clientes[i].nombre;
           compra = this.clientes[i].compras[j];
+          console.log("Esto es fecha ",compra.fecha,"en i ",i," j ",j);
+          console.log("Esto es total ",compra.total,"en i ",i," j ",j);
+          itemHist.idCompra = compra.id;
           itemHist.fecha = compra.fecha;
           itemHist.total = compra.total;
           this.historial.push(itemHist);

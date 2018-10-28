@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-center borde">
+    <div class="col-8 ">
+        <h4 class="text-left">Detalles de la compra</h4>
+
+      <div class="text-center ">
+        <table class="table table-hover" >
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let item of compras.comprados; let i = index" >
+              <th scope="row">{{i}}</th>
+              <td>{{item.nombre}}</td>
+              <td>{{item.cantidad}}</td>
+              <td>{{item.precio}}</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+    </div>
+  </div>
+</div>

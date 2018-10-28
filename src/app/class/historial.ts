@@ -1,6 +1,7 @@
 
 
 export class Historial {
+    idCompra : number;
     cliente: string;
     total: number;
     fecha: string;

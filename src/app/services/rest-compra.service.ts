@@ -20,6 +20,11 @@ export class RestCompraService {
       withCredentials: true
     });
   }
+  getCompraByID(id){
+    return this.http.get<Compra>(this.url+ "/"+String(id), {
+      withCredentials: true
+    });
+  }
 
 
 }

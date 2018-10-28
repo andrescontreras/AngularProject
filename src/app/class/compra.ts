@@ -1,10 +1,10 @@
 import { Cliente } from "./cliente";
-import { Producto } from "./producto";
+import { ProductoCom } from "./ProductoCom";
 
 export class Compra {
     id: number;
     cliente: Cliente;
-    comprados: Producto[];
+    comprados: ProductoCom[];
     fecha: string;
     total: number;
 

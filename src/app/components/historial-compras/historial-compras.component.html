@@ -3,8 +3,8 @@
       <div class="col-8 ">
           <h4 class="text-left">Historial de compras</h4>
           <p class="text-left">
-              De click sobre un item de la lista para ver mas detalles de la compra
-            </p>
+            De click sobre un item de la lista para ver mas detalles de la compra
+          </p>
         <div class="text-center ">
           <table class="table table-hover" >
             <thead>
@@ -18,10 +18,10 @@
             </thead>
             <tbody>
               <tr  *ngFor="let item of historial; let i = index">
-                <th scope="row">{{i}}</th>
-                <td>{{item.cliente}}</td>
-                <td>{{item.total}}</td>
-                <td>{{item.fecha}}</td>
+                <th [routerLink]="['/cajero/detalleCompra',item.idCompra]"scope="row">{{i}}</th>
+                <td [routerLink]="['/cajero/detalleCompra',item.idCompra]">{{item.cliente}}</td>
+                <td [routerLink]="['/cajero/detalleCompra',item.idCompra]">{{item.total}}</td>
+                <td [routerLink]="['/cajero/detalleCompra',item.idCompra]">{{item.fecha}}</td>
               </tr>
             </tbody>
           </table>

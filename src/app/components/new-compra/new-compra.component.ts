@@ -31,7 +31,7 @@ export class NewCompraComponent implements OnInit {
   }
 
   terminarCompra(){
-      this.compra.comprados = this.productos;
+      //this.compra.comprados = this.productos;
 
   }
 
