@@ -4,9 +4,9 @@ import { Producto } from "./producto";
 export class Compra {
     id: number;
     cliente: Cliente;
+    comprados: Producto[];
     fecha: string;
     total: number;
-    productos: Producto[];
 
     /*constructor(id: number, cliente: Cliente, fecha:string, total:number, productos: Producto[]){
         this.id = id;
