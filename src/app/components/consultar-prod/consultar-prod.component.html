@@ -78,7 +78,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of productos; let i = index" [routerLink]="['/bodeguero/detalleProd',i]">
-              <th scope="row">{{i}}</th>
+              <th scope="row">{{i+1}}</th>
               <td>{{item.nombre}}</td>
               <td>{{item.cantidad}}</td>
               <td>{{item.precio}}</td>
