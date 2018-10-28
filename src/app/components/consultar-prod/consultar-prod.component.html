@@ -5,56 +5,56 @@
       <h3>Busqueda</h3>
       <form class="form-inline my-2 my-lg-0">
         <label class="mr-3" for="exampleInputEmail1">Nombre</label>
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="nombre" name="nombre">
         <div class="col p-0">
-            <button class=" btn btn-outline-info my-2 my-sm-0  right" type="submit">Search</button>
+            <button class=" btn btn-outline-info my-2 my-sm-0  right" type="submit"(click)="getDatosPorNombre()">Search</button>
         </div>
 
 
 
         <div class="form-group mt-3 col p-0">
             <label for="exampleFormControlSelect1" class="mr-3">Precio entre</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1000</option>
-              <option>10000</option>
-              <option>30000</option>
-              <option>50000</option>
-              <option>100000</option>
+            <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="minval" name="minval">
+              <option value="1000">1000</option>
+              <option value="10000">10000</option>
+              <option value="30000">30000</option>
+              <option value="50000">50000</option>
+              <option value="100000">100000</option>
             </select>
 
             <label for="exampleFormControlSelect1" class="mx-3"> Y </label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>5000</option>
-              <option>20000</option>
-              <option>40000</option>
-              <option>70000</option>
-              <option>200000</option>
+            <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="maxval" name="maxval">
+              <option value="5000">5000</option>
+              <option value="20000">20000</option>
+              <option value="40000">40000</option>
+              <option value="70000">70000</option>
+              <option value="200000">200000</option>
             </select>
             <div class="col p-0">
-                <button class="btn btn-outline-info my-2 my-sm-0  right" type="submit">Search</button>
+                <button class="btn btn-outline-info my-2 my-sm-0  right" type="submit" (click)="getDatosPorPrecio()">Search</button>
             </div>
           </div>
 
           <div class="form-group mt-3 col p-0">
               <label for="exampleFormControlSelect1" class="mr-3">Cantidad entre</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>0</option>
-                <option>100</option>
-                <option>250</option>
-                <option>500</option>
-                <option>1000</option>
+              <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="minamm" name="minamm">
+                <option value="0">0</option>
+                <option value="100">100</option>
+                <option value="250">250</option>
+                <option value="500">500</option>
+                <option value="1000">1000</option>
               </select>
 
               <label for="exampleFormControlSelect1" class="mx-3"> Y </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>50</option>
-                <option>150</option>
-                <option>300</option>
-                <option>700</option>
-                <option>1500</option>
+              <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="maxamm" name="maxamm">
+                <option value="50">50</option>
+                <option value="150">150</option>
+                <option value="300">300</option>
+                <option value="700">700</option>
+                <option value="1500">1500</option>
               </select>
               <div class="col p-0">
-                  <button class="btn btn-outline-info my-2 my-sm-0  right" type="submit">Search</button>
+                  <button class="btn btn-outline-info my-2 my-sm-0  right" type="submit" (click)="getDatosPorCantidad()">Search</button>
               </div>
             </div>
       </form>
@@ -77,11 +77,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of prueba; let i = index" [routerLink]="['/bodeguero/detalleProd',i]">
-              <th scope="row">{{i}}</th>
-              <td>Mark11111111111111111111111111</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+            <tr *ngFor="let item of productos; let i = index" [routerLink]="['/bodeguero/detalleProd',i]">
+              <th scope="row">{{i+1}}</th>
+              <td>{{item.nombre}}</td>
+              <td>{{item.cantidad}}</td>
+              <td>{{item.precio}}</td>
             </tr>
           </tbody>
         </table>
