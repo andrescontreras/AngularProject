@@ -16,7 +16,9 @@ export class RestClienteService {
 
   getAllData(): Observable<Cliente[]>{
 
-    return this.http.get<Cliente[]>(this.url);
+    return this.http.get<Cliente[]>(this.url, {
+      withCredentials: true
+    });
   }
 
   getClientebyId(id: number): Observable<Cliente>{
