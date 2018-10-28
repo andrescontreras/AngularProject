@@ -1,14 +1,12 @@
+import { ProductoCom } from './../../class/ProductoCom';
 import { RestCompraService } from './../../services/rest-compra.service';
 import { Cliente } from "./../../class/cliente";
 import { Component, OnInit } from "@angular/core";
 import { Compra } from "src/app/class/compra";
 import { Producto } from "src/app/class/producto";
-import { Usuario } from "src/app/class/usuario";
-import { isEmpty } from "rxjs/operators";
 import { RestProductoService } from "src/app/services/rest-producto.service";
-import { forEach } from "@angular/router/src/utils/collection";
 import { RestClienteService } from "src/app/services/rest-cliente.service";
-import { ProductoCom } from 'src/app/class/ProductoCom';
+
 
 @Component({
   selector: "app-new-compra",
@@ -86,13 +84,16 @@ export class NewCompraComponent implements OnInit {
   }
 
   addProduct(p: Producto) {
-    let prod = new Producto();
+    let prod = new ProductoCom();
+    this.inventario.push(p);
+    prod.id= p.id;
+    prod.cantidad = 1;
     prod.codigoSKU = p.codigoSKU;
-    prod.id = p.id;
-    prod.cantidad = p.cantidad;
-    this.inventario.push(prod);
-    p.cantidad = 1;
-    this.productos.push(p);
+    prod.nombre = p.nombre;
+    prod.precio = p.precio;
+    prod.undMed = p.undMed;
+
+    this.productos.push(prod);
     console.log(this.inventario);
   }
 
