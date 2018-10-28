@@ -73,6 +73,8 @@ export class NewCompraComponent implements OnInit {
     this.compra.cliente = this.cliente;
     // llamar rest
     this.srvCompra.crearCompra(this.compra).subscribe( (c) => {
+      console.log("Llego +++++++++++++++");
+      console.log(c);
       this.messageCom = "La compra se realizó correctamente";
       this.successCom = true;
     }, error => {
@@ -92,7 +94,6 @@ export class NewCompraComponent implements OnInit {
     prod.nombre = p.nombre;
     prod.precio = p.precio;
     prod.undMed = p.undMed;
-
     this.productos.push(prod);
     console.log(this.inventario);
   }
