@@ -26,6 +26,7 @@ export class ConsultarProdComponent implements OnInit {
   }
 
   getDatosPorNombre(){
+    this.productos = [];
     //let ejemplar = new Producto();
     console.log("Entrada productos");
     console.log(this.nombre);
