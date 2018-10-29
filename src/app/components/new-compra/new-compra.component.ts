@@ -194,7 +194,7 @@ export class NewCompraComponent implements OnInit {
         this.cliente = c;
         this.cliNom = c.nombre;
         this.cliId = c.id;
-      },error => {
+      }, error => {
         this.messageCli =
         "El cliente con identificacion " + this.cliente.identificacion + " no se encotro. Por favor verifique la identificacion" ;
         this.alertCli = true;

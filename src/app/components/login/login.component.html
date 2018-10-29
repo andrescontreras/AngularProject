@@ -10,13 +10,19 @@
                   <input type="password" class="form-control" placeholder="Your Password *" [(ngModel)]="usuario.password" name="usuario" />
               </div>
               <div class="form-group">
-                  <input type="submit" class="btnSubmit" (click)="doLogin()" value="Login" />
+                  <input type="submit" class="btn btn-info " (click)="doLogin()" value="Login" />
               </div>
               <div class="form-group">
-                  <a routerLink="/registro" class="ForgetPwd">Registrar</a>
+                  <a routerLink="/registro" class=" text-info">Registrar</a>
               </div>
           </form>
       </div>
 
   </div>
+  <div class="">
+      <p>Usuarios:</p>
+      <p>ROL CAJERO: user : cajero password: password</p>
+      <p>ROL BODEGUERO: user : bodeguero password: password</p>
+  </div>
+
 </div>
