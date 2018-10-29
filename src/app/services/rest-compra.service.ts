@@ -31,7 +31,7 @@ export class RestCompraService {
     console.log(compra);
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post<Compra>(this.url, compra, {
+    return this.http.post<Compra>(this.url+"/crear", compra, {
       headers: headers,
       withCredentials: true
     });
